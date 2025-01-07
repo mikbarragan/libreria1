@@ -1,0 +1,53 @@
+darwin:
+  security:
+    enabled: false
+    connectors:
+      pkm-connector.pkm-endpoint: https://security-srv-pkm-san-portaladn360-dev.appls.boae.paas.gsnetcloud.corp
+      sts-connector.sts-endpoint: https://security-srv-sts-san-portaladn360-dev.appls.boae.paas.gsnetcloud.corp,https://security-srv-sts-san-portaladn360-dev.appls.boae.paas.gsnetcloud.corp
+  app-key: adn360
+  logging:
+    system: Estructurales Multicanal
+    subsystem: CNL - Estructurales operativos y de soporte
+    application: 50012028 PG MULTICANAL V00R00
+    subapplication: 50059982 MICROSERVICIOS PG V00R00
+    paasproject: san-portaladn360-dev
+    environment: CERT
+    subapplication-version: "@project.version@"
+    time-stamp-pattern: yyyy-MM-dd'T'HH:mm:ss.SSS
+    async.enabled: true
+    log-level.es.santander.adn360: ERROR
+    technical.log-level: ERROR
+    functional:
+      active: true
+      logged-endpoints: /**/web/*
+    kafka:
+      properties.security.protocol: PLAINTEXT
+      server: ${env.logging-server}
+
+spring:
+  config.activate.on-profile.active: test
+  main.allow-bean-definition-overriding: true
+  lifecycle.timeout-per-shutdown-phase: 2m
+  cache:
+    caffeine.spec: expireAfterWrite=10m
+    type: caffeine
+  session.store-type: none
+
+core:
+  services:
+    stsService:
+      cacheMaximumSize: 100
+      cacheExpireAfterMinutes: 1
+    confidentialityService.personConfidentialityEnabled: false
+  internalUsers.cacheSpec: maximumSize=500
+  channelHeaderValidation: false
+cache.infinispan.use-auth: false
+server:
+  forward-headers-strategy: framework
+  shutdown: graceful
+management.endpoint.health.show-details: ALWAYS
+health.config.enabled: false
+springdoc.swagger-ui:
+  path: /swagger-ui.html
+  disable-swagger-default-url: true
+#spring.main.web-application-type: none

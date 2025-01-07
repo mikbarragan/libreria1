@@ -1,0 +1,5 @@
+ci:
+  featureBranch: feature/branchname
+  integrationBranch: release/1.0.0-SNAPSHOT
+  releaseBranch: master
+  deployBuild: ../deployBranch

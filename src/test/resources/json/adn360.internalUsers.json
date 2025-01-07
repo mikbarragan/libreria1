@@ -1,0 +1,14 @@
+[
+  {
+    "_id" : {"$oid":"65c60a65fe5d327a08ecefa6"},
+    "idUsuario" : "testUser",
+    "usuarioInterno" : "internalUserTest",
+    "fechaBajaLogica" : {"$date": "9999-12-31T00:00:00.000Z"}
+  },
+  {
+    "_id" : {"$oid":"52c60a65fe5d327a08ecefa7"},
+    "idUsuario" : "testUser2",
+    "usuarioInterno" : "internalUserTest2",
+    "fechaBajaLogica" : {"$date": "2022-12-31T00:00:00.000Z"}
+  }
+]

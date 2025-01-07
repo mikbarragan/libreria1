@@ -1,0 +1,13 @@
+spring:
+  #Default config for cache, to override in artifact that use it
+  cache:
+    type: caffeine
+    caffeine:
+      spec: expireAfterWrite=10m
+
+  #Darwin 4.3
+  config:
+    activate:
+      on-profile:
+        -local
+        -local-pre
